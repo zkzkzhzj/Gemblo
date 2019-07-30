@@ -1,0 +1,40 @@
+CREATE DATABASE gemblo;
+
+USE gemblo;
+
+CREATE TABLE `blomember` (
+  `id` varchar(50) NOT NULL DEFAULT '',
+  `password` varchar(50) DEFAULT NULL,
+  `nickname` varchar(50) DEFAULT NULL,
+  `winCnt` int(11) DEFAULT NULL,
+  `winPoint` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `nickname` (`nickname`)
+);
+
+CREATE TABLE `quiz` (
+  `num` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) NOT NULL,
+  `body` varchar(50) NOT NULL,
+  `id` varchar(50),
+  `nickname` varchar(50),
+  PRIMARY KEY (`num`),
+  FOREIGN KEY (`id`) REFERENCES `blomember` (`id`),
+  FOREIGN KEY (`nickname`) REFERENCES `blomember` (`nickname`)
+);
+
+
+CREATE TABLE `tmpQuiz` (
+  `num` int(11) NOT NULL AUTO_INCREMENT,
+  `title` text NOT NULL,
+  `answer1` varchar(50) NOT NULL,
+  `answer2` varchar(50),
+  `answer3` varchar(50),
+  `id` varchar(50) DEFAULT NULL,
+  `nickname` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`num`),
+  KEY `id` (`id`),
+  KEY `nickname` (`nickname`),
+  FOREIGN KEY (`id`) REFERENCES `blomember` (`id`),
+  FOREIGN KEY (`nickname`) REFERENCES `blomember` (`nickname`)
+);
