@@ -400,7 +400,10 @@ public class Main extends JFrame implements ActionListener{
 			
 			inputIp = new JTextField(10);
 			inputIp.setFont(BinggraeFont.deriveFont(15f));
-			inputIp.setText("114.199.210.107");
+			
+			// 여기가 서버의 주소 설정!!!
+			
+			inputIp.setText("");
 			inputIp.setBounds(250, 50, 180, 40);
 			
 			JLabel bgmLabel = new JLabel("BGM 설정");
